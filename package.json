@@ -1,0 +1,22 @@
+{
+  "name": "projekt-zaliczeniowy-masapotemmasa",
+  "version": "1.0.0",
+  "description": "silowania projekt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KISiM-AGH/projekt-zaliczeniowy-masapotemmasa.git"
+  },
+  "keywords": [
+    "react"
+  ],
+  "author": "Jakub N Aleks M",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KISiM-AGH/projekt-zaliczeniowy-masapotemmasa/issues"
+  },
+  "homepage": "https://github.com/KISiM-AGH/projekt-zaliczeniowy-masapotemmasa#readme"
+}
