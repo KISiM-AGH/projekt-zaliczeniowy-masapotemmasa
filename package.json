@@ -4,7 +4,7 @@
   "description": "silowania projekt",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "Server": "nodemon Server"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/KISiM-AGH/projekt-zaliczeniowy-masapotemmasa#readme",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "concurrently": "^7.5.0",
     "cookie": "^0.5.0",
     "express": "^4.18.2",
