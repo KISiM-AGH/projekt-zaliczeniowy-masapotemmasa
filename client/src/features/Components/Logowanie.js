@@ -1,4 +1,8 @@
 import React from "react";
+import './Logowanie.css';
+import {Zalogowales_sie} from "./Zalogowales_sie.js";
+import { browserHistory, Router, Route } from 'react-router';
+
 export class Logowanie extends React.Component {
     constructor(props) {
         super(props);
@@ -19,21 +23,26 @@ export class Logowanie extends React.Component {
         // alert('A name was submitted: ' + this.state.value);
         console.log('A name was submitted: ' + this.state.value1 + ' '+
         this.state.value2)
+        if(this.state.value1.equals("jakub") && this.state.value2.equals("jakub")){
+           // window.open("http://localhost:3000/zalogowales_sie")
+        }
         event.preventDefault();
     }
 
     render() {
         return (
+
             <form onSubmit={this.handleSubmit}>
+
                 <label>
-                    Email:
-                    <input type="text" value={this.state.value1} onChange={this.handleChange} />
+                    <font size={"20"}>Email:</font>
+                    <input id={"email"} size={"20"} height={"20"} type="text" value={this.state.value1} onChange={this.handleChange} />
                     <br/>
-                    Haslo:
-                    <input type="text" value={this.state.value2} onChange={this.handleChange1} />
+                    <font size={"20"}>Haslo:</font>
+                    <input id={"haslo"} type="text" value={this.state.value2} onChange={this.handleChange1} />
                     <br/>
                 </label>
-                <input type="submit" value="Submit" />
+                <input id={"button"} type="submit" value="Zaloguj sie" />
             </form>
         );
     }
