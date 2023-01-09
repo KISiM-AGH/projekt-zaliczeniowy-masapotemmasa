@@ -1,7 +1,7 @@
 import React from "react";
 import './Logowanie.css';
-import {Zalogowales_sie} from "./Zalogowales_sie.js";
-import { browserHistory, Router, Route } from 'react-router';
+
+
 
 export class Logowanie extends React.Component {
     constructor(props) {
@@ -21,10 +21,14 @@ export class Logowanie extends React.Component {
     }
     handleSubmit(event) {
         // alert('A name was submitted: ' + this.state.value);
-        console.log('A name was submitted: ' + this.state.value1 + ' '+
-        this.state.value2)
-        if(this.state.value1.equals("jakub") && this.state.value2.equals("jakub")){
-           // window.open("http://localhost:3000/zalogowales_sie")
+
+
+        if(this.state.value1 === "jakub" && this.state.value2 === "jakub"){
+            console.log('A name was submitted: ' + this.state.value1 + ' '+
+                this.state.value2)
+            console.log("tuuuuu");
+            window.open("http://localhost:3000/zalogowales_sie");
+            console.log("my");
         }
         event.preventDefault();
     }
@@ -43,7 +47,9 @@ export class Logowanie extends React.Component {
                     <br/>
                 </label>
                 <input id={"button"} type="submit" value="Zaloguj sie" />
+
             </form>
+
         );
     }
 }
