@@ -1,9 +1,10 @@
 .App {
-  text-align: center;
+
 
 }
 
 #tytul{
+  text-align: center;
   background-image: url('./images/gym_background.png');
   color: darkgrey;
   font-family: "Arial Black";

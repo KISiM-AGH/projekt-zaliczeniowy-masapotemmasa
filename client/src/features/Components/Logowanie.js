@@ -2,7 +2,6 @@ import React from "react";
 import './Logowanie.css';
 
 
-
 export class Logowanie extends React.Component {
     constructor(props) {
         super(props);
@@ -11,6 +10,7 @@ export class Logowanie extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.handleChange1 = this.handleChange1.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.DataStorage = this.props.DataStorage;
     }
 
     handleChange(event) {
@@ -19,15 +19,27 @@ export class Logowanie extends React.Component {
     handleChange1(event) {
         this.setState({value2: event.target.value});
     }
+    setData(){
+        let value = this.state.value1;
+
+        console.log(value);
+        this.props.DataStorage.email.push(value);
+
+        console.log(this.props.DataStorage.email.indexOf("jakub"));
+
+    }
     handleSubmit(event) {
         // alert('A name was submitted: ' + this.state.value);
 
-
+        this.setData();
         if(this.state.value1 === "jakub" && this.state.value2 === "jakub"){
+
             console.log('A name was submitted: ' + this.state.value1 + ' '+
                 this.state.value2)
             console.log("tuuuuu");
-            window.open("http://localhost:3000/zalogowales_sie");
+
+            window.open("http://localhost:3000/zalogowales_sie/uzytkownik");
+            window.close();
             console.log("my");
         }
         event.preventDefault();
@@ -36,7 +48,7 @@ export class Logowanie extends React.Component {
     render() {
         return (
 
-            <form onSubmit={this.handleSubmit}>
+            <form id = "logowanie" onSubmit={this.handleSubmit}>
 
                 <label>
                     <font size={"20"}>Email:</font>
