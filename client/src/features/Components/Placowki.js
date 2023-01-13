@@ -26,9 +26,10 @@ read_souna(miasto, numer){
         return(
             <>
                 <div className="navigation_bar">
-                    <a className="active" href="/zalogowales_sie/uzytkownik" >Uzytkownik</a>
+                    <a className="active" href="/zalogowales_sie/uzytkownik" >Użytkownik</a>
                     <a href="/zalogowales_sie/pakiety">Pakiety</a>
-                    <a href="/zalogowales_sie/placowki">Placówki</a>
+                    <a id="last" href="/zalogowales_sie/placowki">Placówki</a>
+                    <a href="/">Wyloguj sie</a>
                 </div>
                 <br/>
                 <div className="placowki_kontyner">

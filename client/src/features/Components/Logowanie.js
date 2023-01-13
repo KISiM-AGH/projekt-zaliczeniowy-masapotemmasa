@@ -1,5 +1,6 @@
 import React from "react";
 import './Logowanie.css';
+import {Zalogowales_sie} from "./Zalogowales_sie";
 
 
 export class Logowanie extends React.Component {
@@ -24,7 +25,7 @@ export class Logowanie extends React.Component {
 
         console.log(value);
         this.props.DataStorage.email.push(value);
-
+        Zalogowales_sie.DataStorage = this.props.DataStorage;
         console.log(this.props.DataStorage.email.indexOf("jakub"));
 
     }
@@ -39,7 +40,8 @@ export class Logowanie extends React.Component {
             console.log("tuuuuu");
 
             window.open("http://localhost:3000/zalogowales_sie/uzytkownik");
-            window.close();
+
+            window.close("http://localhost:3000/");
             console.log("my");
         }
         event.preventDefault();
@@ -51,10 +53,10 @@ export class Logowanie extends React.Component {
             <form id = "logowanie" onSubmit={this.handleSubmit}>
 
                 <label>
-                    <font size={"20"}>Email:</font>
+                    <font id={"email_label"} size={"20"}>Email &nbsp;</font>
                     <input id={"email"} size={"20"} height={"20"} type="text" value={this.state.value1} onChange={this.handleChange} />
                     <br/>
-                    <font size={"20"}>Haslo:</font>
+                    <font id={"haslo_label"} size={"20"}>Haslo &nbsp;</font>
                     <input id={"haslo"} type="text" value={this.state.value2} onChange={this.handleChange1} />
                     <br/>
                 </label>

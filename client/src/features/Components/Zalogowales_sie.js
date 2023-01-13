@@ -22,14 +22,14 @@ mapData(){
             <>
                 <div className="navigation_bar">
 
-                    <a className="active" href="/zalogowales_sie/uzytkownik">Uzytkownik</a>
+                    <a className="active" href="/zalogowales_sie/uzytkownik">Użytkownik</a>
                     <a href="/zalogowales_sie/pakiety">Pakiety</a>
-                    <a href="/zalogowales_sie/placowki">Placówki</a>
-
+                    <a id="last" href="/zalogowales_sie/placowki">Placówki</a>
+                    <a href="/">Wyloguj sie</a>
 
                 </div>
                 <div>
-                <label id={"imie"}> Imie: jan </label><br/>
+                <label id={"imie"}> Imie: {this.props.DataStorage.email.at(0)} </label><br/>
 
                 <label id={"nazwisko"}>Nazwisko: </label><br/>
                 <label id={"data_urodzenia"}>Data urodzenia:</label><br/>
