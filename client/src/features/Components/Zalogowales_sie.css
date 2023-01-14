@@ -15,20 +15,11 @@
     color: black;
 }
 #last{
-    margin-right: 71%;
+    margin-right: 70%;
 }
-#imie{
-    text-align: left;
-    font-size: 25px;
-    width: 300px;
-}
-#nazwisko{
-    text-align: left;
-    font-size: 25px;
-    width: 300px;
-}
-#data_urodzenia{
-    text-align: left;
-    font-size: 25px;
-    width: 300px;
+#opis{
+    background-color: #333;
+    margin-left: 30%;
+    text-align: center;
+    width: 500px;
 }

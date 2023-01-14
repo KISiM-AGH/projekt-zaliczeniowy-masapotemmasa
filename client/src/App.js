@@ -16,8 +16,9 @@ import {Placowki} from "./features/Components/Placowki";
 function App() {
     document.body.style.backgroundColor="grey";
 
-   let data = new DataStorage();
-   data.email.push("jakub")
+    let data = new DataStorage();
+
+
   return (
 
       <div className="App">
@@ -25,7 +26,7 @@ function App() {
 
           <Routes>
               <Route path="/" element={<Logowanie  DataStorage = {data}/>  }/>
-              <Route path="/zalogowales_sie/uzytkownik" element={<Zalogowales_sie DataStorage = {data} />}/>
+              <Route path="/zalogowales_sie/glowna" element={<Zalogowales_sie DataStorage = {data} />}/>
               <Route path="/zalogowales_sie/pakiety" element={<Pakiety DataStorage = {data}/>}/>
               <Route path="/zalogowales_sie/placowki" element={<Placowki DataStorage = {data}/>}/>
           </Routes>

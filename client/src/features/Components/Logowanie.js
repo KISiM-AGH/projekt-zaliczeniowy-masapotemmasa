@@ -1,6 +1,8 @@
 import React from "react";
 import './Logowanie.css';
-import {Zalogowales_sie} from "./Zalogowales_sie";
+
+import DataStorage from "./DataStorage";
+export let data = new DataStorage();
 
 
 export class Logowanie extends React.Component {
@@ -21,14 +23,24 @@ export class Logowanie extends React.Component {
         this.setState({value2: event.target.value});
     }
     setData(){
+
+
         let value = this.state.value1;
-
-        console.log(value);
+        let numer = "111 111 111";
+        //dane kontakowe
         this.props.DataStorage.email.push(value);
-        Zalogowales_sie.DataStorage = this.props.DataStorage;
-        console.log(this.props.DataStorage.email.indexOf("jakub"));
+        this.props.DataStorage.numer.push(numer);
+        this.props.DataStorage.adres.push("ul. nowa");
 
+        //dane osobowe
+        this.props.DataStorage.imie.push("jan");
+        this.props.DataStorage.nazwisko.push("pawel");
+        this.props.DataStorage.plec.push("M");
+        //this.props.DataStorage.data_urodzenia("01.01.2001")
+        console.log(this.props.DataStorage.numer.indexOf("111 111 111"));
+        data.email.push("jan");
     }
+
     handleSubmit(event) {
         // alert('A name was submitted: ' + this.state.value);
 
@@ -39,9 +51,9 @@ export class Logowanie extends React.Component {
                 this.state.value2)
             console.log("tuuuuu");
 
-            window.open("http://localhost:3000/zalogowales_sie/uzytkownik");
+            window.open("http://localhost:3000/zalogowales_sie/glowna");
 
-            window.close("http://localhost:3000/");
+           // window.close("http://localhost:3000/");
             console.log("my");
         }
         event.preventDefault();

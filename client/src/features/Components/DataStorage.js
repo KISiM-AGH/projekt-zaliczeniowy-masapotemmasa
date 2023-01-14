@@ -1,10 +1,26 @@
 import {extendObservable} from "mobx";
 class DataStorage {
     constructor() {
+
         extendObservable(this, {
+
+            //dane kontakowe
             email:[],
+            numer:[],
+            adres:[],
+
+            //dane osobowe
+            imie:[],
+            nazwisko:[],
+            plec:[],
+            data_urodzenia: [],
+
+
+            //dane do pakietow
             pakiet_nazwa: ['nazwa1', 'nazwa2','nazwa3','nazwa4','nazwa5', 'nazwa6'],
             opis:['opis1', 'opis2','opis3','opis4','opis5', 'opis6'],
+
+            //dane do placowek
             placowki_krakow_nazwa:['nazwa1', 'nazwa2'],
             placowki_warszawa_nazwa:['nazwa3', 'nazwa4'],
             placowki_krakow_ulica:['ulica1', 'ulica2'],

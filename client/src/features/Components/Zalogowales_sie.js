@@ -1,39 +1,37 @@
 import React from "react";
 import './Zalogowales_sie.css'
+import {data} from "./Logowanie";
 
 
 export class Zalogowales_sie extends React.Component {
-constructor(props) {
-    super(props);
+    componentDidMount() {
+    this.setState({value1: data.email.at(0)});
 
-
-    this.state = {value1: this.mapData()};
-
+    }
+constructor() {
+    super();
+    this.state = {value1: ''};
 }
-mapData(){
-
-   return this.props.DataStorage.email.values();
-
-}
-
     render() {
 
         return (
             <>
                 <div className="navigation_bar">
 
-                    <a className="active" href="/zalogowales_sie/uzytkownik">Użytkownik</a>
+                    <a className="active" href="/zalogowales_sie/glowna">Strona główna</a>
                     <a href="/zalogowales_sie/pakiety">Pakiety</a>
                     <a id="last" href="/zalogowales_sie/placowki">Placówki</a>
                     <a href="/">Wyloguj sie</a>
 
                 </div>
-                <div>
-                <label id={"imie"}> Imie: {this.props.DataStorage.email.at(0)} </label><br/>
-
-                <label id={"nazwisko"}>Nazwisko: </label><br/>
-                <label id={"data_urodzenia"}>Data urodzenia:</label><br/>
-                </div>
+               <div id={"opis"}>
+                   <h1>Na siłownie</h1>
+                   "Na siłownie" to sieć siłownie posiadające swoje placówki w dwóch najwięksych polskich miastach,
+                   zapewniająca profesjonalizm usług, odpowiedni sprzęt dla wszytskich fanów sportów siłowych
+                   (omijając crossfitowców bo oni nie są sportowcami). Poza sprzętem zapewniamy infrastrukturę
+                   gwarantująca przyjemny odpoczynek i regeneracja, a w naszych barach znajdzie się wszytsko dla osób
+                   na masie i dla osób na masie. &#128170; &#128170; &#128170;
+               </div>
 
             </>
         );
