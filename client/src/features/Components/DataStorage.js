@@ -19,6 +19,7 @@ class DataStorage {
             //dane do pakietow
             pakiet_nazwa: ['nazwa1', 'nazwa2','nazwa3','nazwa4','nazwa5', 'nazwa6'],
             opis:['opis1', 'opis2','opis3','opis4','opis5', 'opis6'],
+            cena:[10,20,30,40,50,60],
 
             //dane do placowek
             placowki_krakow_nazwa:['nazwa1', 'nazwa2'],
