@@ -1,32 +1,58 @@
 import React from "react";
 import './Placowki.css'
+
 export class Placowki extends React.Component {
-read_souna(miasto, numer){
-    if(miasto==="krakow"){
-        if(this.props.DataStorage.souna_krakow.at(numer)===1){
-            return(
-            <>
-                &#129397;
-            </>
-            );
+
+    state = {
+        PlacowkiKrakow: [],
+        PlacowkiWarsaw: []
+    }
+
+    componentDidMount() {
+        fetch(
+            "http://localhost:5000/Krakow")
+            .then((res) => res.json())
+            .then((json) => {
+                this.setState({
+                    PlacowkiKrakow: json
+                });
+            })
+        fetch(
+            "http://localhost:5000/Warsaw")
+            .then((res) => res.json())
+            .then((json) => {
+                this.setState({
+                    PlacowkiWarsaw: json
+                });
+            })
+    }
+
+    read_souna(miasto, numer) {
+        console.log("Numer: " + numer)
+        if (miasto === "krakow") {
+            if (numer === 1) {
+                return (
+                    <>
+                        &#129397;
+                    </>
+                );
+            }
+        } else if (miasto === "warszawa") {
+            if (numer === 1) {
+                return (
+                    <>
+                        &#129397;
+                    </>
+                );
+            }
         }
     }
-    else if(miasto==="warszawa"){
-        if(this.props.DataStorage.souna_warszawa.at(numer)===1){
-            return(
-                <>
-                    &#129397;
-                </>
-            );
-        }
-    }
-}
 
     render() {
-        return(
+        return (
             <>
                 <div className="navigation_bar">
-                    <a className="active" href="/zalogowales_sie/glowna" >Strona główna</a>
+                    <a className="active" href="/zalogowales_sie/glowna">Strona główna</a>
                     <a href="/zalogowales_sie/pakiety">Pakiety</a>
                     <a id="last" href="/zalogowales_sie/placowki">Placówki</a>
                     <a href="/">Wyloguj sie</a>
@@ -34,43 +60,34 @@ read_souna(miasto, numer){
                 <br/>
                 <div className="placowki_kontyner">
                     &#129397; - souna
+
                     <div className="Krakow">
                         Krakow
-                        <div className="placowka white">
-                            {this.props.DataStorage.placowki_krakow_nazwa.at(0)}
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            adres: {this.props.DataStorage.placowki_krakow_ulica.at(0)}
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            {this.read_souna('krakow',0)}
-                        </div>
-                        <div className="placowka blue">
-                            {this.props.DataStorage.placowki_krakow_nazwa.at(1)}
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            adres: {this.props.DataStorage.placowki_krakow_ulica.at(1)}
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            {this.read_souna('krakow',1)}
-                        </div>
+                        {this.state.PlacowkiKrakow.map(Placowka =>
+                            <div className="placowka white">
+                                {Placowka.SilowniaName}
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                adres: {Placowka.SilowniaAdres}
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {this.read_souna('krakow', Placowka.SilowniaSauna)}
+                            </div>
+                        )}
+
                     </div>
                     <div className="Warszawa">
                         Warszawa
-                        <div className="placowka green">
-                            {this.props.DataStorage.placowki_warszawa_nazwa.at(0)}
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            adres: {this.props.DataStorage.placowki_warszawa_ulica.at(0)}
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            {this.read_souna('warszawa',0)}
-                        </div>
-                        <div className="placowka yellow">
-                            {this.props.DataStorage.placowki_warszawa_nazwa.at(1)}
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            adres: {this.props.DataStorage.placowki_warszawa_ulica.at(1)}
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            {this.read_souna('warszawa',1)}
-                        </div>
+                        {this.state.PlacowkiWarsaw.map(Placowka =>
+                            <div className="placowka green">
+                                {Placowka.SilowniaName}
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                adres: {Placowka.SilowniaAdres}
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                {this.read_souna('warszawa', Placowka.SilowniaSauna)}
+                            </div>
+                        )}
                     </div>
                 </div>
             </>
-
 
 
         );
