@@ -5,7 +5,8 @@ export class Placowki extends React.Component {
 
     state = {
         PlacowkiKrakow: [],
-        PlacowkiWarsaw: []
+        PlacowkiWarsaw: [],
+        Trenerzy: []
     }
 
     componentDidMount() {
@@ -25,6 +26,42 @@ export class Placowki extends React.Component {
                     PlacowkiWarsaw: json
                 });
             })
+    }
+
+    read_trenerzy(id) {
+        console.log(id)
+        switch (id) {
+            case 1:
+                fetch(
+                    "http://localhost:5000/TrenerzySilownia1")
+                    .then((res) => res.json())
+                    .then((json) => {
+                        this.setState({
+                            Trenerzy: json
+                        });
+                    })
+                break;
+            case 2:
+                fetch(
+                    "http://localhost:5000/TrenerzySilownia2")
+                    .then((res) => res.json())
+                    .then((json) => {
+                        this.setState({
+                            Trenerzy: json
+                        });
+                    })
+                break;
+            case 3:
+                fetch(
+                    "http://localhost:5000/TrenerzySilownia3")
+                    .then((res) => res.json())
+                    .then((json) => {
+                        this.setState({
+                            Trenerzy: json
+                        });
+                    })
+                break;
+        }
     }
 
     read_souna(miasto, numer) {
@@ -70,6 +107,8 @@ export class Placowki extends React.Component {
                                 adres: {Placowka.SilowniaAdres}
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 {this.read_souna('krakow', Placowka.SilowniaSauna)}
+                                <input className="guzik" type="button" value="Trenerzy"
+                                       onClick={() => this.read_trenerzy(Placowka.idSilownia)}/>
                             </div>
                         )}
 
@@ -83,10 +122,15 @@ export class Placowki extends React.Component {
                                 adres: {Placowka.SilowniaAdres}
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 {this.read_souna('warszawa', Placowka.SilowniaSauna)}
+                                <input className="guzik" type="button" value="Trenerzy"
+                                       onClick={() => this.read_trenerzy(Placowka.idSilownia)}/>
                             </div>
                         )}
                     </div>
                 </div>
+                {this.state.Trenerzy.map(Trenerzy =>
+                    <label>{Trenerzy.NameTrenerzy} <br></br></label>
+                )}
             </>
 
 

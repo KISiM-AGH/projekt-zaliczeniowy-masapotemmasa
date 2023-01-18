@@ -74,7 +74,7 @@ app.get('/PakietPrice', function (req, res) {
     });
 })
 app.get('/Krakow', function (req, res) {
-    let sql = "SELECT Silownia.SilowniaName,Silownia.SilowniaAdres, Silownia.SilowniaSauna,Miasto.MiastoName\n" +
+    let sql = "SELECT Silownia.idSilownia, Silownia.SilowniaName,Silownia.SilowniaAdres, Silownia.SilowniaSauna,Miasto.MiastoName\n" +
         "FROM Silownia\n" +
         "INNER JOIN Miasto on Miasto.idMiasto = Silownia.idMiasto \n" +
         "Where Miasto.idMiasto = 1";
@@ -84,10 +84,37 @@ app.get('/Krakow', function (req, res) {
     });
 })
 app.get('/Warsaw', function (req, res) {
-    let sql = "SELECT Silownia.SilowniaName,Silownia.SilowniaAdres, Silownia.SilowniaSauna,Miasto.MiastoName\n" +
+    let sql = "SELECT Silownia.idSilownia, Silownia.SilowniaName,Silownia.SilowniaAdres, Silownia.SilowniaSauna,Miasto.MiastoName\n" +
         "FROM Silownia\n" +
         "INNER JOIN Miasto on Miasto.idMiasto = Silownia.idMiasto \n" +
         "Where Miasto.idMiasto = 2";
+    connection.query(sql, function (err, result) {
+        if (err) throw err;
+        res.send(result)
+    });
+})
+app.get('/TrenerzySilownia1', function (req, res) {
+    let sql = "SELECT Trenerzy.NameTrenerzy FROM Trenerzy\n" +
+        "INNER JOIN Trenerzy_Silownia on Trenerzy.idTrenerzy = Trenerzy_Silownia.idTrenerzy\n" +
+        "Where Trenerzy_Silownia.idSilownia = 1";
+    connection.query(sql, function (err, result) {
+        if (err) throw err;
+        res.send(result)
+    });
+})
+app.get('/TrenerzySilownia2', function (req, res) {
+    let sql = "SELECT Trenerzy.NameTrenerzy FROM Trenerzy\n" +
+        "INNER JOIN Trenerzy_Silownia on Trenerzy.idTrenerzy = Trenerzy_Silownia.idTrenerzy\n" +
+        "Where Trenerzy_Silownia.idSilownia = 2";
+    connection.query(sql, function (err, result) {
+        if (err) throw err;
+        res.send(result)
+    });
+})
+app.get('/TrenerzySilownia3', function (req, res) {
+    let sql = "SELECT Trenerzy.NameTrenerzy FROM Trenerzy\n" +
+        "INNER JOIN Trenerzy_Silownia on Trenerzy.idTrenerzy = Trenerzy_Silownia.idTrenerzy\n" +
+        "Where Trenerzy_Silownia.idSilownia = 3";
     connection.query(sql, function (err, result) {
         if (err) throw err;
         res.send(result)
